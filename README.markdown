@@ -4,5 +4,6 @@ _This is a Cocoa library parsing, managing and persisting the underlying `.brief
 
 This framework is open-source under a modified BSD license. Please refer to the LICENSE file for details and conditions for use.  Please contact me with any questions, broader documentation is forthcoming. http://giveabrief.com/
 
-Rob Rhyne, @capttaco
-rob@robrhyne.com
+Rob Rhyne
+Twitter: @capttaco
+Email: rob@robrhyne.com
