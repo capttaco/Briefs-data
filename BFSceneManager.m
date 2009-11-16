@@ -18,8 +18,13 @@
 
 - (id)initWithPathToDictionary:(NSString*)path
 {
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    return [self initWithDictionary:dict];
+}
+
+- (id)initWithDictionary:(NSDictionary *)dict
+{
     if (self = [super init]) {
-        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
         NSArray *scenes = [dict valueForKey:@"scenes"];
         
         openingScene = [[dict valueForKey:@"start_scene"] intValue];

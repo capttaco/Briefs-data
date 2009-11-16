@@ -25,6 +25,7 @@
 
 
 - (id)initWithPathToDictionary:(NSString*)path;
+- (id)initWithDictionary:(NSDictionary *)dict;
 
 
 // Scene Management
