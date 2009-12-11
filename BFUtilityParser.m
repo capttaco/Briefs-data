@@ -39,9 +39,11 @@
     return nil;
 }
 
+
 + (NSArray *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix
 {
-    NSString *lowered = [action lowercaseString]; 
+    // normalize the action string
+    NSString *lowered = [[action lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]; 
     
     NSRange start = [lowered rangeOfString:@"("];
     NSRange end = [lowered rangeOfString:@")"];
