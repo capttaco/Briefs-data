@@ -33,6 +33,12 @@
         
     } else if ([lowered hasPrefix:kBFActorActionMove]) {
         return kBFActorActionMove;
+    
+    } else if ([lowered hasPrefix:kBFActorActionHide]) {
+        return kBFActorActionHide;
+    
+    } else if ([lowered hasPrefix:kBFActorActionShow]) {
+        return kBFActorActionShow;
     }
     
     // TODO: throw exception?
