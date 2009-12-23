@@ -23,8 +23,8 @@
 
 + (NSArray *)copyOfAvailableActions {
     // FIXME Best way to represent this?
-    return [[NSArray alloc] initWithObjects:kBFACTOR_GOTO_ACTION, kBFACTOR_TOGGLE_ACTION,
-                    kBFACTOR_RESIZE_ACTION, kBFACTOR_MOVE_ACTION, nil];
+    return [[NSArray alloc] initWithObjects:kBFActorActionGoto, kBFActorActionToggle,
+                    kBFActorActionResize, kBFActorActionMove, nil];
 }
 
 

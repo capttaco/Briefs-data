@@ -9,10 +9,10 @@
 
 // Actor Actions
 
-#define	kBFACTOR_GOTO_ACTION    @"goto"
-#define	kBFACTOR_TOGGLE_ACTION  @"toggle"
-#define	kBFACTOR_RESIZE_ACTION  @"resize"
-#define	kBFACTOR_MOVE_ACTION    @"move"
+#define	kBFActorActionGoto    @"goto"
+#define	kBFActorActionToggle  @"toggle"
+#define	kBFActorActionResize  @"resize"
+#define	kBFActorActionMove    @"move"
 
 
 

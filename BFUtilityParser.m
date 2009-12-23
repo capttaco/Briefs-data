@@ -22,17 +22,17 @@
 {
     NSString *lowered = [action lowercaseString];
     
-    if ([lowered hasPrefix:kBFACTOR_GOTO_ACTION]) {
-        return kBFACTOR_GOTO_ACTION;
+    if ([lowered hasPrefix:kBFActorActionGoto]) {
+        return kBFActorActionGoto;
         
-    } else if ([lowered hasPrefix:kBFACTOR_TOGGLE_ACTION]) {
-        return kBFACTOR_TOGGLE_ACTION;
+    } else if ([lowered hasPrefix:kBFActorActionToggle]) {
+        return kBFActorActionToggle;
         
-    } else if ([lowered hasPrefix:kBFACTOR_RESIZE_ACTION]) {
-        return kBFACTOR_RESIZE_ACTION;
+    } else if ([lowered hasPrefix:kBFActorActionResize]) {
+        return kBFActorActionResize;
         
-    } else if ([lowered hasPrefix:kBFACTOR_MOVE_ACTION]) {
-        return kBFACTOR_MOVE_ACTION;
+    } else if ([lowered hasPrefix:kBFActorActionMove]) {
+        return kBFActorActionMove;
     }
     
     // TODO: throw exception?
