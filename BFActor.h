@@ -37,9 +37,10 @@
 - (NSDictionary *)copyAsDictionary;
 
 // state management
-- (void) activate;
-- (void) deactivate;
-- (NSString *) background;
+- (void)activate;
+- (void)deactivate;
+- (void)toggle;
+- (NSString *)background;
 
 // Actions
 + (NSArray *)copyOfAvailableActions;

@@ -91,17 +91,25 @@
 #pragma mark -
 #pragma mark State Management
 
-- (void) activate
+- (void)activate
 {
     isActive = true;
 }
 
-- (void) deactivate 
+- (void)deactivate 
 {
     isActive = false;
 }
 
-- (NSString *) background
+- (void)toggle
+{
+    if (isActive) {
+        [self deactivate];
+    }
+    else [self activate];
+}
+
+- (NSString *)background
 {
     // Check for empty string, produces
     // erratic behavior if empty.
