@@ -14,7 +14,7 @@
     NSString    *name;
     CGRect      size;
     NSString    *action;
-    bool        isActive;
+    BOOL        isActive;
     
     // Optional behavior states
     id touchedBg;
@@ -26,6 +26,7 @@
 @property (nonatomic, retain)   NSString    *name;
 @property (nonatomic)           CGRect      size;
 @property (nonatomic, retain)   NSString    *action;
+@property (readonly)            BOOL        isActive;
 
 @property (nonatomic, retain)   id touchedBg;
 @property (nonatomic, retain)   id releasedBg;

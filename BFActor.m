@@ -13,7 +13,7 @@
 
 @implementation BFActor
 
-@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg;
+@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg, isActive;
 
 
 
@@ -74,14 +74,39 @@
 
 - (NSDictionary *)copyAsDictionary
 {
+    NSMutableArray *keys = [NSMutableArray arrayWithArray:
+                            [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", nil]];
+    
+    // Required values
     NSNumber *x = [NSNumber numberWithDouble:[self size].origin.x];
     NSNumber *y = [NSNumber numberWithDouble:[self size].origin.y];
     NSNumber *width = [NSNumber numberWithDouble:[self size].size.width];
     NSNumber *height = [NSNumber numberWithDouble:[self size].size.height];
     NSString *background = [self bg] == nil ? @"" : [self bg];
+
+    NSMutableArray *values = [NSMutableArray arrayWithArray:
+                              [NSArray arrayWithObjects:background, x, y, width, height, [self name], [self action], nil]];
+    
+    
+    // check for alternate backgrounds
+    // ===============================
+    // disabled, touched, released, etc
+    
+    if (self.disabledBg != nil) {
+        [keys addObject:@"disabled"];
+        [values addObject:[self disabledBg]];
+    }
+    
+    if (self.touchedBg != nil) {
+        [keys addObject:@"touched"];
+        [values addObject:[self touchedBg]];
+    }
+    
+    if (self.releasedBg != nil) {
+        [keys addObject:@"released"];
+        [values addObject:[self releasedBg]];
+    }
   
-    NSArray *keys = [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", nil];
-    NSArray *values = [NSArray arrayWithObjects:background, x, y, width, height, [self name], [self action], nil];
 
     NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
     return dict;

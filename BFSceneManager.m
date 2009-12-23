@@ -83,7 +83,10 @@
     return nil;
 }
 
-
+- (NSDictionary *)copyOfSource:(BOOL)asCompacted withWorkingDirectory:(NSString *)directory
+{
+    return nil;
+}
 
 
 @end

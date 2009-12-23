@@ -35,6 +35,9 @@
 - (BFScene *)sceneByNumber:(int)index;
 
 
+// Brief Management
+- (NSDictionary *)copyOfSource:(BOOL)asCompacted withWorkingDirectory:(NSString *)directory;
+
 
 
 @end
