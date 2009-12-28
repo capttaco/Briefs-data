@@ -22,14 +22,13 @@
 
 #define kBFSceneTransitionFlip              @"flip"
 #define kBFSceneTransitionPush              @"push"
-#define kBFSceneTransitionSlide             @"slide"
+#define kBFSceneTransitionCover             @"cover"
+#define kBFSceneTransitionReveal            @"reveal"
 #define kBFSceneTransitionZoom              @"zoom"
 #define kBFSceneTransitionCurl              @"curl"
 
 #define kBFSceneTransitionDirectionLeft     @"left"
 #define kBFSceneTransitionDirectionRight    @"right"
-#define kBFSceneTransitionDirectionTop      @"top"
-#define kBFSceneTransitionDirectionBottom   @"bottom"
 #define kBFSceneTransitionDirectionOut      @"out"
 #define kBFSceneTransitionDirectionIn       @"in"
 #define kBFSceneTransitionDirectionUp       @"up"
