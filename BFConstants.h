@@ -7,11 +7,29 @@
 //
 
 
-#define	kBFACTOR_GOTO_ACTION    @"goto"
-#define	kBFACTOR_TOGGLE_ACTION  @"toggle"
-#define	kBFACTOR_RESIZE_ACTION  @"resize"
-#define	kBFACTOR_MOVE_ACTION    @"move"
+// Actor Actions
 
-#define kBFSCENE_TRANSITION_FADE  @"fade"
-#define kBFSCENE_TRANSITION_SLIDE @"slide"
-#define kBFSCENE_TRANSITION_ZOOM  @"zoom"
+#define	kBFActorActionGoto      @"goto"
+#define	kBFActorActionToggle    @"toggle"
+#define	kBFActorActionResize    @"resize"
+#define	kBFActorActionMove      @"move"
+#define kBFActorActionHide      @"hide"
+#define kBFActorActionShow      @"show"
+
+
+
+// Scene Transitions
+
+#define kBFSceneTransitionFlip              @"flip"
+#define kBFSceneTransitionPush              @"push"
+#define kBFSceneTransitionCover             @"cover"
+#define kBFSceneTransitionReveal            @"reveal"
+#define kBFSceneTransitionZoom              @"zoom"
+#define kBFSceneTransitionCurl              @"curl"
+
+#define kBFSceneTransitionDirectionLeft     @"left"
+#define kBFSceneTransitionDirectionRight    @"right"
+#define kBFSceneTransitionDirectionOut      @"out"
+#define kBFSceneTransitionDirectionIn       @"in"
+#define kBFSceneTransitionDirectionUp       @"up"
+#define kBFSceneTransitionDirectionDown     @"down"

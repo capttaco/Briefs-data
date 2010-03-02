@@ -12,7 +12,6 @@
 
 
 @implementation BFActor
-
 @synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg, isActive, visible;
 
 
@@ -80,7 +79,7 @@
 - (NSDictionary *)copyAsDictionary
 {
     NSMutableArray *keys = [NSMutableArray arrayWithArray:
-                            [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", @"visible", nil]];
+    [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", @"visible", nil]];
     
     // Required values
     NSNumber *x = [NSNumber numberWithDouble:[self size].origin.x];
@@ -89,10 +88,9 @@
     NSNumber *height = [NSNumber numberWithDouble:[self size].size.height];
     NSString *background = [self bg] == nil ? @"" : [self bg];
     NSNumber *isVisible = [NSNumber numberWithBool:[self visible]];
-
     NSMutableArray *values = [NSMutableArray arrayWithArray:
                               [NSArray arrayWithObjects:background, x, y, width, height, [self name], [self action], isVisible, nil]];
-    
+   
     
     // check for alternate backgrounds
     // ===============================

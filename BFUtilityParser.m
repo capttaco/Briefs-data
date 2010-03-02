@@ -22,26 +22,34 @@
 {
     NSString *lowered = [action lowercaseString];
     
-    if ([lowered hasPrefix:kBFACTOR_GOTO_ACTION]) {
-        return kBFACTOR_GOTO_ACTION;
+    if ([lowered hasPrefix:kBFActorActionGoto]) {
+        return kBFActorActionGoto;
         
-    } else if ([lowered hasPrefix:kBFACTOR_TOGGLE_ACTION]) {
-        return kBFACTOR_TOGGLE_ACTION;
+    } else if ([lowered hasPrefix:kBFActorActionToggle]) {
+        return kBFActorActionToggle;
         
-    } else if ([lowered hasPrefix:kBFACTOR_RESIZE_ACTION]) {
-        return kBFACTOR_RESIZE_ACTION;
+    } else if ([lowered hasPrefix:kBFActorActionResize]) {
+        return kBFActorActionResize;
         
-    } else if ([lowered hasPrefix:kBFACTOR_MOVE_ACTION]) {
-        return kBFACTOR_MOVE_ACTION;
+    } else if ([lowered hasPrefix:kBFActorActionMove]) {
+        return kBFActorActionMove;
+    
+    } else if ([lowered hasPrefix:kBFActorActionHide]) {
+        return kBFActorActionHide;
+    
+    } else if ([lowered hasPrefix:kBFActorActionShow]) {
+        return kBFActorActionShow;
     }
     
     // TODO: throw exception?
     return nil;
 }
 
+
 + (NSArray *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix
 {
-    NSString *lowered = [action lowercaseString]; 
+    // normalize the action string
+    NSString *lowered = [[action lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]; 
     
     NSRange start = [lowered rangeOfString:@"("];
     NSRange end = [lowered rangeOfString:@")"];
