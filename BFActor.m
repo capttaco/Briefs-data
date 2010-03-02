@@ -13,7 +13,7 @@
 
 @implementation BFActor
 
-@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg;
+@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg, isActive, visible;
 
 
 
@@ -23,8 +23,8 @@
 
 + (NSArray *)copyOfAvailableActions {
     // FIXME Best way to represent this?
-    return [[NSArray alloc] initWithObjects:kBFACTOR_GOTO_ACTION, kBFACTOR_TOGGLE_ACTION,
-                    kBFACTOR_RESIZE_ACTION, kBFACTOR_MOVE_ACTION, nil];
+    return [[NSArray alloc] initWithObjects:kBFActorActionGoto, kBFActorActionToggle,
+                    kBFActorActionResize, kBFActorActionMove, nil];
 }
 
 
@@ -46,6 +46,11 @@
         self.touchedBg = [dict valueForKey:@"touched"];
         self.disabledBg = [dict valueForKey:@"disabled"];
         self.releasedBg = [dict valueForKey:@"released"];
+        
+        if ([dict valueForKey:@"visible"] != nil)
+            self.visible = [[dict valueForKey:@"visible"] boolValue];
+        else
+            self.visible = YES;
         
         // Dimensions
         NSNumber *x = [dict valueForKey:@"x"];
@@ -74,14 +79,40 @@
 
 - (NSDictionary *)copyAsDictionary
 {
+    NSMutableArray *keys = [NSMutableArray arrayWithArray:
+                            [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", @"visible", nil]];
+    
+    // Required values
     NSNumber *x = [NSNumber numberWithDouble:[self size].origin.x];
     NSNumber *y = [NSNumber numberWithDouble:[self size].origin.y];
     NSNumber *width = [NSNumber numberWithDouble:[self size].size.width];
     NSNumber *height = [NSNumber numberWithDouble:[self size].size.height];
     NSString *background = [self bg] == nil ? @"" : [self bg];
+    NSNumber *isVisible = [NSNumber numberWithBool:[self visible]];
+
+    NSMutableArray *values = [NSMutableArray arrayWithArray:
+                              [NSArray arrayWithObjects:background, x, y, width, height, [self name], [self action], isVisible, nil]];
+    
+    
+    // check for alternate backgrounds
+    // ===============================
+    // disabled, touched, released, etc
+    
+    if (self.disabledBg != nil) {
+        [keys addObject:@"disabled"];
+        [values addObject:[self disabledBg]];
+    }
+    
+    if (self.touchedBg != nil) {
+        [keys addObject:@"touched"];
+        [values addObject:[self touchedBg]];
+    }
+    
+    if (self.releasedBg != nil) {
+        [keys addObject:@"released"];
+        [values addObject:[self releasedBg]];
+    }
   
-    NSArray *keys = [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", nil];
-    NSArray *values = [NSArray arrayWithObjects:background, x, y, width, height, [self name], [self action], nil];
 
     NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
     return dict;
@@ -91,17 +122,25 @@
 #pragma mark -
 #pragma mark State Management
 
-- (void) activate
+- (void)activate
 {
     isActive = true;
 }
 
-- (void) deactivate 
+- (void)deactivate 
 {
     isActive = false;
 }
 
-- (NSString *) background
+- (void)toggle
+{
+    if (isActive) {
+        [self deactivate];
+    }
+    else [self activate];
+}
+
+- (NSString *)background
 {
     // Check for empty string, produces
     // erratic behavior if empty.
