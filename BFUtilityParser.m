@@ -48,16 +48,22 @@
 
 + (NSArray *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix
 {
-    // normalize the action string
-    NSString *lowered = [[action lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]; 
-    
-    NSRange start = [lowered rangeOfString:@"("];
-    NSRange end = [lowered rangeOfString:@")"];
-    
-    NSString *argumentsAsString = [[lowered substringToIndex:end.location] substringFromIndex:start.location+1];
-    NSArray *argumentsAsArray = [argumentsAsString componentsSeparatedByString:@","];
-    
-    return argumentsAsArray;
+	// check for the a nil action
+	if (action != nil && ![action isEqual:@""]) {
+		
+		// normalize the action string
+		NSString *lowered = [[action lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]; 
+		
+		NSRange start = [lowered rangeOfString:@"("];
+		NSRange end = [lowered rangeOfString:@")"];
+		
+		NSString *argumentsAsString = [[lowered substringToIndex:end.location] substringFromIndex:start.location+1];
+		NSArray *argumentsAsArray = [argumentsAsString componentsSeparatedByString:@","];
+		
+		return argumentsAsArray;
+	}
+	
+	else return nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
