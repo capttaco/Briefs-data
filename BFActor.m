@@ -47,7 +47,7 @@
         self.releasedBg = [dict valueForKey:@"released"];
         
         self.visible = [dict valueForKey:@"visible"] != nil ? [[dict valueForKey:@"visible"] boolValue] : YES;
-		self.scrollable = [dict valueForKey:@"scrollable"] != nil ? [[dict valueForKey:@"visible"] boolValue] : NO;
+		self.scrollable = [dict valueForKey:@"scrollable"] != nil ? [[dict valueForKey:@"scrollable"] boolValue] : NO;
         
         // Dimensions
         NSNumber *x = [dict valueForKey:@"x"];
