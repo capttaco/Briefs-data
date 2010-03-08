@@ -16,6 +16,7 @@
     NSString    *action;
     BOOL        isActive;
     BOOL        visible;
+	BOOL		scrollable;
     
     // Optional behavior states
     id touchedBg;
@@ -29,6 +30,7 @@
 @property (nonatomic, retain)   NSString    *action;
 @property (readonly)            BOOL        isActive;
 @property (nonatomic)           BOOL        visible;
+@property (nonatomic)           BOOL        scrollable;
 
 @property (nonatomic, retain)   id touchedBg;
 @property (nonatomic, retain)   id releasedBg;

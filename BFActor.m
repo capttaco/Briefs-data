@@ -12,7 +12,7 @@
 
 
 @implementation BFActor
-@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg, isActive, visible;
+@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg, isActive, visible, scrollable;
 
 
 
@@ -46,10 +46,8 @@
         self.disabledBg = [dict valueForKey:@"disabled"];
         self.releasedBg = [dict valueForKey:@"released"];
         
-        if ([dict valueForKey:@"visible"] != nil)
-            self.visible = [[dict valueForKey:@"visible"] boolValue];
-        else
-            self.visible = YES;
+        self.visible = [dict valueForKey:@"visible"] != nil ? [[dict valueForKey:@"visible"] boolValue] : YES;
+		self.scrollable = [dict valueForKey:@"scrollable"] != nil ? [[dict valueForKey:@"visible"] boolValue] : NO;
         
         // Dimensions
         NSNumber *x = [dict valueForKey:@"x"];
@@ -110,6 +108,12 @@
         [keys addObject:@"released"];
         [values addObject:[self releasedBg]];
     }
+	
+	if (self.scrollable) {
+		NSNumber *isScrollable = [NSNumber numberWithBool:[self scrollable]];
+		[keys addObject:@"scrollable"];
+		[values addObject:isScrollable];
+	}
   
 
     NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
