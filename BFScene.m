@@ -24,9 +24,8 @@
         NSArray *actor_dicts = [dict valueForKey:@"actors"];
         NSMutableArray *actors_tree = [NSMutableArray arrayWithCapacity:[actor_dicts count]];
         for (NSDictionary *dictionary in actor_dicts) {
-            BFActor *actor = [[BFActor alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary];
+            BFActor *actor = [[[BFActor alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary] autorelease];
             [actors_tree addObject:actor];
-            [actor release];
         }
         self.actors = actors_tree;
         
