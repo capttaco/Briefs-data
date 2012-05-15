@@ -63,16 +63,6 @@
     return self;
 }
 
-- (void)dealloc 
-{
-    [bg release];
-    [name release];
-    [action release];
-    [touchedBg release];
-    [disabledBg release];
-    [releasedBg release];
-    [super dealloc];
-}
 
 - (NSDictionary *)copyAsDictionary
 {
@@ -116,7 +106,7 @@
 	}
   
 
-    NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     return dict;
 }
 

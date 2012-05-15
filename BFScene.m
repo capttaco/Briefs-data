@@ -26,7 +26,6 @@
         for (NSDictionary *dictionary in actor_dicts) {
             BFActor *actor = [[BFActor alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary];
             [actors_tree addObject:actor];
-            [actor release];
         }
         self.actors = actors_tree;
         
@@ -34,13 +33,6 @@
     return self;    
 }
 
-- (void)dealloc 
-{
-    [name release];
-    [actors release];
-    [bg release];
-    [super dealloc];
-}
 
 - (NSDictionary *)copyAsDictionary
 {
@@ -53,11 +45,10 @@
         [serializedActors addObject:actorAsDictionary];
         
         //[actor release];
-        [actorAsDictionary release];
     }
     NSArray *values = [NSArray arrayWithObjects:[self bg], [self name], serializedActors, nil];
 
-    NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     return dict;
 }
 

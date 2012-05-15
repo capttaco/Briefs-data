@@ -16,9 +16,9 @@
     NSString *description;
 }
 
-@property (nonatomic, retain) NSString *url;
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *description;
+@property (nonatomic) NSString *url;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *description;
 
 - (id)initWithName:(NSString *)name andURL:(NSString *)url;
 - (id)initWithDictionary:(NSDictionary *)dict;

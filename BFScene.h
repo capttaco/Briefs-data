@@ -16,9 +16,9 @@
     NSString    *name;
 }
 
-@property (nonatomic, retain) id        bg;
-@property (nonatomic, retain) NSArray   *actors;
-@property (nonatomic, retain) NSString  *name;
+@property (nonatomic) id        bg;
+@property (nonatomic) NSArray   *actors;
+@property (nonatomic) NSString  *name;
 
 
 - (id)init:(NSString *)name withDictionary:(NSDictionary *)dict;

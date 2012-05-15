@@ -19,9 +19,9 @@
     int openingScene;
 }
 
-@property (nonatomic, retain) NSDictionary      *source;
-@property (nonatomic, retain) NSMutableArray    *scene_graph;
-@property (nonatomic, retain) NSArray           *scene_desc;
+@property (nonatomic) NSDictionary      *source;
+@property (nonatomic) NSMutableArray    *scene_graph;
+@property (nonatomic) NSArray           *scene_desc;
 
 
 - (id)initWithPathToDictionary:(NSString*)path;

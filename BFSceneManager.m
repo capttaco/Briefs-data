@@ -37,22 +37,14 @@
         for (NSDictionary *dictionary in scenes) {
             BFScene *scene = [[BFScene alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary];
             [graph addObject:scene];
-            [scene release];
         }
         self.scene_graph = graph;
         
         // memory cleanup
-        [scenes release];
     }
     return self;
 }
 
-- (void)dealloc 
-{ 
-    [scene_graph release];
-    [scene_desc release];
-    [super dealloc];
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

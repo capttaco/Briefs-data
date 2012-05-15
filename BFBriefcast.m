@@ -40,12 +40,5 @@
                     self.description, @"description", nil];
 }
 
-- (void)dealloc
-{
-    [title release];
-    [url release];
-    [description release];
-    [super dealloc];
-}
 
 @end

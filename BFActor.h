@@ -24,17 +24,17 @@
     id disabledBg;   
 }
 
-@property (nonatomic, retain)   id          bg;
-@property (nonatomic, retain)   NSString    *name;
+@property (nonatomic)   id          bg;
+@property (nonatomic)   NSString    *name;
 @property (nonatomic)           CGRect      size;
-@property (nonatomic, retain)   NSString    *action;
+@property (nonatomic)   NSString    *action;
 @property (readonly)            BOOL        isActive;
 @property (nonatomic)           BOOL        visible;
 @property (nonatomic)           BOOL        scrollable;
 
-@property (nonatomic, retain)   id touchedBg;
-@property (nonatomic, retain)   id releasedBg;
-@property (nonatomic, retain)   id disabledBg;
+@property (nonatomic)   id touchedBg;
+@property (nonatomic)   id releasedBg;
+@property (nonatomic)   id disabledBg;
 
 
 // initialization
